@@ -1,0 +1,8 @@
+{
+    "vscord.enabled": false,
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "*.s": "arm",
+        "sdl_image.h": "c"
+    }
+}
