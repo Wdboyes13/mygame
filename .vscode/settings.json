@@ -7,5 +7,8 @@
         "stdlib.h": "c"
     },
     "cmake.configureOnOpen": false,
-    "cmake.buildBeforeRun": false
+    "cmake.buildBeforeRun": false,
+    "cmake.generator": "Ninja",
+    "cmake.cCompiler": "/opt/will/bin/wclang",
+    "cmake.cppCompiler": "/opt/will/bin/wclang++"
 }
