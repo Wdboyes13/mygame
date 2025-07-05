@@ -3,6 +3,7 @@
     "files.associations": {
         "*.dbclient-js": "javascript",
         "*.s": "arm",
-        "sdl_image.h": "c"
+        "sdl_image.h": "c",
+        "stdlib.h": "c"
     }
 }

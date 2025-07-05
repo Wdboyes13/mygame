@@ -1,7 +1,7 @@
 CC = wclang
 LD = ld
 
-VIEW_SRCS := $(wildcard src/views/*.c)
+VIEW_SRCS := $(wildcard src/views/*.c) $(wildcard src/views/MainHelpers/*.c)
 MAIN_SRCS := $(filter-out $(VIEW_SRCS), $(wildcard src/*.c))
 
 # Object files
@@ -16,7 +16,7 @@ OBJS := $(VIEWS_OBJ) $(MAIN_OBJ)
 
 CFLAGS := -I/opt/will/include -O2 -Wall -Wextra -Werror
 
-LDFLAGS := -L/opt/will/lib/SDL -lSDL2 -lSDL2_image \
+LDFLAGS := -L/opt/will/lib/SDL -lSDL2 -lSDL2_image -lSDL2_mixer \
 			-Wl,-rpath,/opt/will/lib/SDL
 
 OUT := game
@@ -39,7 +39,9 @@ $(MAIN_OBJ): $(MAIN_OBJS)
 
 # Clean
 clean:
-	rm -f $(OBJS) $(OUT) $(VIEW_OBJS) $(MAIN_OBJS)
+	rm -f $(OBJS) $(OUT) 
+	rm -f $(MAIN_OBJS)
+	rm -f $(VIEW_OBJS) 
 
 git: clean
 	git add .
