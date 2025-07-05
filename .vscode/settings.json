@@ -5,5 +5,7 @@
         "*.s": "arm",
         "sdl_image.h": "c",
         "stdlib.h": "c"
-    }
+    },
+    "cmake.configureOnOpen": false,
+    "cmake.buildBeforeRun": false
 }
