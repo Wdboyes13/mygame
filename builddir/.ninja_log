@@ -1,8 +1,0 @@
-# ninja log v6
-0	484	1751755730420102503	CMakeFiles/game.dir/src/Game.c.o	ea96db08d969dc34
-1	485	1751755730420412339	CMakeFiles/game.dir/src/Setup.c.o	a1499abb1f9acfad
-1	485	1751755730420650007	CMakeFiles/game.dir/src/StartMusic.c.o	6531ba9806f3fb8d
-1	485	1751755730420838758	CMakeFiles/game.dir/src/views/DeadView.c.o	34995a194ef8d3a2
-1	485	1751755730421045843	CMakeFiles/game.dir/src/views/MainHelpers/UpdatePos.c.o	67fcf4a30ab3ec3c
-2	485	1751755730421643306	CMakeFiles/game.dir/src/views/MainView.c.o	8c58dfa04ecb4cc9
-485	566	1751755730905008198	game	1738317e511e3f82

@@ -8,7 +8,7 @@ builddir:
 	cd builddir && cmake -G Ninja ..
 
 clean:
-	rm -rf build 
+	rm -rf builddir
 
 git: clean
 	git add .
