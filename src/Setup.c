@@ -9,8 +9,9 @@ SDL_Texture *deadsprite = NULL;
 Mix_Music *music = NULL;
 
 SDL_Rect pos;
-SDL_Rect enempos;
 SDL_Rect deadpos;
+SDL_Rect enemies[MAX_ENEMIES] = {0};
+int enemy_count = 1;
 
 void init_game(void) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) exit(1);
@@ -41,7 +42,7 @@ void init_game(void) {
     SDL_FreeSurface(deadsurf);
 
     pos = (SDL_Rect){100, 100, 64, 64};
-    enempos = (SDL_Rect){(WinWidth - 64) / 2, (WinHeight - 64) / 2, 64, 64};
+    enemies[0] = (SDL_Rect){(WinWidth - 64) / 2, (WinHeight - 64) / 2, 64, 64};
     deadpos = (SDL_Rect){(WinWidth - 400) / 2, (WinHeight - 200) / 2, 400, 200};
 }
 

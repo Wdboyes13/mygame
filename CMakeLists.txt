@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(game C)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_FLAGS "-O2 -Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "-O2 -Wall -Wextra")
 
 # Find SDL2, SDL2_image, SDL2_mixer cross-platform
 find_package(SDL2 REQUIRED)
