@@ -1,25 +1,45 @@
 CC = wclang
+LD = ld
 
-SRCS := src/Game.c src/Setup.c \
-		src/views/DeadView.c src/views/MainView.c
+VIEW_SRCS := $(wildcard src/views/*.c)
+MAIN_SRCS := $(filter-out $(VIEW_SRCS), $(wildcard src/*.c))
 
-OBJS := $(patsubst %.c,%.o,$(SRCS))
+# Object files
+VIEW_OBJS := $(patsubst %.c,%.o,$(VIEW_SRCS))
+MAIN_OBJS := $(patsubst %.c,%.o,$(MAIN_SRCS))
 
-CFLAGS := -I/opt/will/include -O2 -Wall -Wextra -Wpedantic -Werror
+# Groups
+VIEWS_OBJ := src/views.o
+MAIN_OBJ := src/main.o
+
+OBJS := $(VIEWS_OBJ) $(MAIN_OBJ)
+
+CFLAGS := -I/opt/will/include -O2 -Wall -Wextra -Werror
 
 LDFLAGS := -L/opt/will/lib/SDL -lSDL2 -lSDL2_image \
 			-Wl,-rpath,/opt/will/lib/SDL
 
 OUT := game
 
+# Final executable depends on the combined object files
 $(OUT): $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
-%.o: %.c 
+# Archive views.o
+$(VIEWS_OBJ): $(VIEW_OBJS)
+	$(LD) -r -o $@ $^
+
+# Archive main.o
+$(MAIN_OBJ): $(MAIN_OBJS)
+	$(LD) -r -o $@ $^
+
+# Compile all .c to .o
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Clean
 clean:
-	rm -f $(OBJS) $(OUT)
+	rm -f $(OBJS) $(OUT) $(VIEW_OBJS) $(MAIN_OBJS)
 
 git: clean
 	git add .
