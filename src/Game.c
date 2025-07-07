@@ -23,6 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "views.h"
 
 int main(int argc, char* argv[]) {
+    (void)argv; (void)argc;
     init_game();
 
     int running = 1;

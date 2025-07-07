@@ -24,14 +24,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 void UpdatePos(){
     static float speed = 2.0f;
     static Uint32 lastTime = 0;     // last recorded time in ms
-    static Uint32 elapsed = 0;      // accumulator for elapsed time
     static Uint32 lastSpawn = 0;
 
     Uint32 currentTime = SDL_GetTicks();
     if (lastTime == 0) lastTime = currentTime;
-
-    Uint32 delta = currentTime - lastTime;
-    elapsed += delta;
     lastTime = currentTime;
 
     // Multiply enemies every 10 seconds
@@ -50,6 +46,12 @@ void UpdatePos(){
     if (keystate[SDL_SCANCODE_DOWN] || keystate[SDL_SCANCODE_S]) pos.y += 5;
     if (keystate[SDL_SCANCODE_LEFT] || keystate[SDL_SCANCODE_A]) pos.x -= 5;
     if (keystate[SDL_SCANCODE_RIGHT] || keystate[SDL_SCANCODE_D]) pos.x += 5;
+
+    if (pos.x < 0) pos.x = 0;
+    if (pos.y < 0) pos.y = 0;
+
+    if (pos.x > WinWidth - 64) pos.x = WinWidth - 64;
+    if (pos.y > WinHeight - 64) pos.y = WinHeight - 64;
 
     // Move all enemies toward player
     for (int i = 0; i < enemy_count; ++i) {
