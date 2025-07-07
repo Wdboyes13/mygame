@@ -11,7 +11,8 @@ Linked are the releases I used
 [SDL2_image](https://github.com/libsdl-org/SDL_image/releases/tag/release-2.6.0)  
 
 ## Licensing  
-__[Main App License](/LICENSE)__  
+__Main App License__  
+__[Full License](/LICENSE)__  
 __[License Info](/Licenses/main.txt)__  
   
 __Background Music License__   
