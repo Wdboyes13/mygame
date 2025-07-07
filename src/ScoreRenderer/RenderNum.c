@@ -41,8 +41,6 @@ void Render2DNumber(int Number, SDL_Rect Pos1, SDL_Rect Pos2){
         }
     }
 
-
-
     if (count >= 1) SDL_RenderCopy(ren, GetSprite(digits[0]), NULL, &Pos1);
     if (count >= 2) SDL_RenderCopy(ren, GetSprite(digits[1]), NULL, &Pos2);
 }
