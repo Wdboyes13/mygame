@@ -36,6 +36,9 @@ extern SDL_Rect pos;
 extern SDL_Rect deadpos;
 extern SDL_Rect menupos;
 
+extern SDL_Rect ScorePos1;
+extern SDL_Rect ScorePos2;
+
 extern Mix_Music *music;
 
 #define MAX_ENEMIES 100

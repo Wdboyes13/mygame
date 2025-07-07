@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "game_setup.h"
 #include "global.h"
+#include "ScoreRenderer/Numbers.h"
 
 SDL_Window *win = NULL;
 SDL_Renderer *ren = NULL;
@@ -35,6 +36,9 @@ SDL_Rect origpos;
 SDL_Rect menupos;
 SDL_Rect enemies[MAX_ENEMIES] = {0};
 int enemy_count = 1;
+
+SDL_Rect ScorePos1;
+SDL_Rect ScorePos2;
 
 void repos(){
     pos = (SDL_Rect){100, 100, 64, 64};
@@ -84,7 +88,12 @@ void init_game(void) {
     menusprite = SDL_CreateTextureFromSurface(ren, menusurf);
     SDL_FreeSurface(menusurf);
 
+    InitNumRend();
+
     repos();
+
+    ScorePos1 = (SDL_Rect){WinWidth -50, WinHeight - 50, 25, 50}; // First digit
+    ScorePos2 = (SDL_Rect){WinWidth - 25, WinHeight - 50, 25, 50};  // Second digit
 }
 
 void cleanup_game(void) {

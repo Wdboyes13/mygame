@@ -14,7 +14,8 @@ include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_MIXER
 
 # Your source files
 file(GLOB_RECURSE VIEW_SRCS "src/views/*.c" "src/views/MainHelpers/*.c")
-file(GLOB MAIN_SRCS "src/*.c")
+file(GLOB MAIN_SRCS "src/*.c" "src/ScoreRenderer/*.c")
+
 list(REMOVE_ITEM MAIN_SRCS ${VIEW_SRCS})
 
 add_executable(game ${MAIN_SRCS} ${VIEW_SRCS})
