@@ -24,6 +24,7 @@ static const char* EnemyIMG = "res/enemy.png";
 static const char* DeathScreenIMG = "res/dead.png";
 static const char* BGMusic = "res/bgm.wav";
 static const char* RestButtonIMG = "res/restart-button.png";
+static const char* MenuIMG = "res/menutxt.png";
 static const int WinWidth = 800;
 static const int WinHeight = 650;
 

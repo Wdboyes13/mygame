@@ -29,10 +29,12 @@ extern SDL_Texture *sprite;
 extern SDL_Texture *ensprite;
 extern SDL_Texture *deadsprite;
 extern SDL_Texture *restsprite;
+extern SDL_Texture *menusprite;
 
 extern SDL_Rect restpos;
 extern SDL_Rect pos;
 extern SDL_Rect deadpos;
+extern SDL_Rect menupos;
 
 extern Mix_Music *music;
 

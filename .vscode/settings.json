@@ -10,5 +10,6 @@
     "cmake.buildBeforeRun": false,
     "cmake.generator": "Ninja",
     "cmake.cCompiler": "/opt/will/bin/wclang",
-    "cmake.cppCompiler": "/opt/will/bin/wclang++"
+    "cmake.cppCompiler": "/opt/will/bin/wclang++",
+    "C_Cpp.default.compilerPath": "/opt/will/bin/wclang"
 }

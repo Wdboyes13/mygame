@@ -28,13 +28,15 @@ int main(int argc, char* argv[]) {
 
     int running = 1;
     SDL_Event e;
-    char* CurrView = "Game";
+    char* CurrView = "Menu";
 
     while (running){
         if (strcmp(CurrView, "Game") == 0){
             MainView(&e, &running, &CurrView);
         } else if (strcmp(CurrView, "Death") == 0) {
             DeadView(&e, &running, &CurrView);
+        } else if (strcmp(CurrView, "Menu") == 0) {
+            MenuView(&e, &running, &CurrView);
         }
     }
     cleanup_game();

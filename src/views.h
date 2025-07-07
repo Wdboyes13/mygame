@@ -22,3 +22,4 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 void MainView(SDL_Event *e, int *running, char** CurrView);
 void DeadView(SDL_Event *e, int *running, char** CurrView);
+void MenuView(SDL_Event *e, int *running, char** CurrView);

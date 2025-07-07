@@ -25,12 +25,14 @@ SDL_Texture *sprite = NULL;
 SDL_Texture *ensprite = NULL;
 SDL_Texture *deadsprite = NULL;
 SDL_Texture *restsprite = NULL;
+SDL_Texture *menusprite = NULL;
 Mix_Music *music = NULL;
 
 SDL_Rect pos;
 SDL_Rect restpos;
 SDL_Rect deadpos;
 SDL_Rect origpos;
+SDL_Rect menupos;
 SDL_Rect enemies[MAX_ENEMIES] = {0};
 int enemy_count = 1;
 
@@ -39,6 +41,7 @@ void repos(){
     enemies[0] = (SDL_Rect){(WinWidth - 64) / 2, (WinHeight - 64) / 2, 64, 64};
     deadpos = (SDL_Rect){(WinWidth - 400) / 2, (WinHeight - 200) / 2, 400, 200};
     restpos = (SDL_Rect){(WinWidth - 200) / 2, ((WinHeight - 100) / 2) + 125, 200, 100};
+    menupos = (SDL_Rect){(WinWidth - 300) / 2, (WinHeight - 100) / 2, 300, 100};
 }
 
 void init_game(void) {
@@ -75,6 +78,11 @@ void init_game(void) {
     if (!deadsurf) exit(1);
     restsprite = SDL_CreateTextureFromSurface(ren,restbutsurf);
     SDL_FreeSurface(restbutsurf);
+
+    SDL_Surface* menusurf = IMG_Load(MenuIMG);
+    if (!menusurf) exit(1);
+    menusprite = SDL_CreateTextureFromSurface(ren, menusurf);
+    SDL_FreeSurface(menusurf);
 
     repos();
 }
