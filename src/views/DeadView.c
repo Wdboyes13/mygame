@@ -23,10 +23,26 @@ void DeadView(SDL_Event *e, int* running, char **CurrView){
     (void)CurrView;
     while (SDL_PollEvent(e)) {
         if (e->type == SDL_QUIT) *running = 0;
+        else if (e->type == SDL_MOUSEBUTTONDOWN && e->button.button == SDL_BUTTON_LEFT) {
+            int mx = e->button.x;
+            int my = e->button.y;
+
+            // Check if the click is inside restpos
+            if (mx >= restpos.x && mx <= restpos.x + restpos.w &&
+                my >= restpos.y && my <= restpos.y + restpos.h) {
+                // Restart logic here
+                pos = origpos;
+                enemy_count = 1;
+                *CurrView = "Game";  // or whatever view string you use
+                return;
+            }
+        } 
     }
+
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
     SDL_RenderClear(ren);
     SDL_RenderCopy(ren, deadsprite, NULL, &deadpos);
+    SDL_RenderCopy(ren, restsprite, NULL, &restpos);
     SDL_RenderPresent(ren);
     SDL_Delay(16);
 }

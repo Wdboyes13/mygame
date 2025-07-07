@@ -18,10 +18,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_main.h>
 #include "game_setup.h"
 #include "views.h"
 
-int main(void){
+int main(int argc, char* argv[]) {
     init_game();
 
     int running = 1;

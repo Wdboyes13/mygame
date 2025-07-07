@@ -28,9 +28,12 @@ extern SDL_Renderer *ren;
 extern SDL_Texture *sprite;
 extern SDL_Texture *ensprite;
 extern SDL_Texture *deadsprite;
+extern SDL_Texture *restsprite;
 
+extern SDL_Rect restpos;
 extern SDL_Rect pos;
 extern SDL_Rect deadpos;
+extern SDL_Rect origpos;
 
 extern Mix_Music *music;
 
