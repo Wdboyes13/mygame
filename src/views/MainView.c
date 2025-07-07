@@ -20,6 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "../game_setup.h"
 #include "../global.h"
 #include "MainHelpers/Helpers.h"
+#include "../ScoreRenderer/Numbers.h"
 
 Uint32 lastTime = 0;     // last recorded time in ms
 Uint32 lastSpawn = 0;
@@ -31,6 +32,11 @@ void ResetTimers() {
 }
 
 void MainView(SDL_Event *e, int *running, char** CurrView){
+
+    if (points >= 99){
+        *CurrView = "Win";
+    }
+
     Uint32 currentTime = SDL_GetTicks();
     if (lastTime == 0) lastTime = currentTime;
     lastTime = currentTime;
@@ -43,6 +49,7 @@ void MainView(SDL_Event *e, int *running, char** CurrView){
             64, 64
         };
         lastSpawn = currentTime;
+        points += 10;
         SDL_Log("Spawned enemy #%d\n", enemy_count);
     }
 
@@ -65,6 +72,7 @@ void MainView(SDL_Event *e, int *running, char** CurrView){
     for (int i = 0; i < enemy_count; ++i) {
         SDL_RenderCopy(ren, ensprite, NULL, &enemies[i]);
     }
+    Render2DNumber(points, ScorePos1, ScorePos2);
     SDL_RenderPresent(ren);                    // update screen
     SDL_Delay(16); // ~60 FPS
 }

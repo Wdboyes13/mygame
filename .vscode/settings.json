@@ -5,7 +5,8 @@
         "*.s": "arm",
         "sdl_image.h": "c",
         "stdlib.h": "c",
-        "numbers.h": "c"
+        "numbers.h": "c",
+        "game_setup.h": "c"
     },
     "cmake.configureOnOpen": false,
     "cmake.buildBeforeRun": false,

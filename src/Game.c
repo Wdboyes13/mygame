@@ -37,6 +37,10 @@ int main(int argc, char* argv[]) {
             DeadView(&e, &running, &CurrView);
         } else if (strcmp(CurrView, "Menu") == 0) {
             MenuView(&e, &running, &CurrView);
+        } else if (strcmp(CurrView, "Win") == 0){
+            WinView(&e, &running, &CurrView);
+        } else if (strcmp(CurrView, "Creds") == 0) {
+            CredsView(&e, &running, &CurrView);
         }
     }
     cleanup_game();

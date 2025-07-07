@@ -30,11 +30,14 @@ extern SDL_Texture *ensprite;
 extern SDL_Texture *deadsprite;
 extern SDL_Texture *restsprite;
 extern SDL_Texture *menusprite;
+extern SDL_Texture *winsprite;
+extern SDL_Texture *credsprite;
 
 extern SDL_Rect restpos;
 extern SDL_Rect pos;
 extern SDL_Rect deadpos;
 extern SDL_Rect menupos;
+extern SDL_Rect credpos;
 
 extern SDL_Rect ScorePos1;
 extern SDL_Rect ScorePos2;
@@ -45,6 +48,7 @@ extern Mix_Music *music;
 
 extern SDL_Rect enemies[MAX_ENEMIES];
 extern int enemy_count;
+extern int points;
 
 
 void init_game(void);

@@ -29,7 +29,6 @@ void UpdatePos(){
     if (keystate[SDL_SCANCODE_DOWN] || keystate[SDL_SCANCODE_S]) pos.y += 5;
     if (keystate[SDL_SCANCODE_LEFT] || keystate[SDL_SCANCODE_A]) pos.x -= 5;
     if (keystate[SDL_SCANCODE_RIGHT] || keystate[SDL_SCANCODE_D]) pos.x += 5;
-
     if (pos.x < 0) pos.x = 0;
     if (pos.y < 0) pos.y = 0;
 

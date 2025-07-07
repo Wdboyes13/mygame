@@ -19,12 +19,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #pragma once
 #include "game_setup.h"
 
+
+#ifdef _WIN32
+static const char* PlayerIMG = "res\\player.png";
+static const char* EnemyIMG = "res\\enemy.png";
+static const char* DeathScreenIMG = "res\\dead.png";
+static const char* BGMusic = "res\\bgm.wav";
+static const char* RestButtonIMG = "res\\restart-button.png";
+static const char* MenuIMG = "res\\menutxt.png";
+static const char* WinIMG = "res\\Win.png";
+static const char* CredsIMG = "res\\credits.png";
+#else
 static const char* PlayerIMG = "res/player.png";
 static const char* EnemyIMG = "res/enemy.png";
 static const char* DeathScreenIMG = "res/dead.png";
 static const char* BGMusic = "res/bgm.wav";
 static const char* RestButtonIMG = "res/restart-button.png";
 static const char* MenuIMG = "res/menutxt.png";
+static const char* WinIMG = "res/Win.png";
+static const char* CredsIMG = "res/credits.png";
+#endif
 static const int WinWidth = 800;
 static const int WinHeight = 650;
 

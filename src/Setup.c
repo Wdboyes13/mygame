@@ -22,23 +22,21 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 SDL_Window *win = NULL;
 SDL_Renderer *ren = NULL;
-SDL_Texture *sprite = NULL;
-SDL_Texture *ensprite = NULL;
-SDL_Texture *deadsprite = NULL;
-SDL_Texture *restsprite = NULL;
-SDL_Texture *menusprite = NULL;
+
+SDL_Texture *sprite = NULL; SDL_Texture *ensprite = NULL;
+SDL_Texture *deadsprite = NULL; SDL_Texture *restsprite = NULL;
+SDL_Texture *menusprite = NULL; SDL_Texture *winsprite = NULL;
+SDL_Texture *credsprite = NULL;
 Mix_Music *music = NULL;
 
-SDL_Rect pos;
-SDL_Rect restpos;
-SDL_Rect deadpos;
-SDL_Rect origpos;
-SDL_Rect menupos;
+SDL_Rect pos; SDL_Rect restpos;
+SDL_Rect deadpos; SDL_Rect origpos;
+SDL_Rect menupos; SDL_Rect credpos;
 SDL_Rect enemies[MAX_ENEMIES] = {0};
 int enemy_count = 1;
+int points = 0;
 
-SDL_Rect ScorePos1;
-SDL_Rect ScorePos2;
+SDL_Rect ScorePos1; SDL_Rect ScorePos2;
 
 void repos(){
     pos = (SDL_Rect){100, 100, 64, 64};
@@ -47,6 +45,14 @@ void repos(){
     restpos = (SDL_Rect){(WinWidth - 200) / 2, ((WinHeight - 100) / 2) + 125, 200, 100};
     menupos = (SDL_Rect){(WinWidth - 300) / 2, (WinHeight - 100) / 2, 300, 100};
 }
+
+#define InitSprite(SpriteName, SpriteIMG) \
+    SDL_Surface* SpriteName##surf = IMG_Load(SpriteIMG); \
+    if (!SpriteName##surf) exit(1); \
+    SpriteName = SDL_CreateTextureFromSurface(ren, SpriteName##surf); \
+    SDL_FreeSurface(SpriteName##surf); 
+
+#define KillSprite(SpriteName) if (SpriteName) SDL_DestroyTexture(SpriteName)
 
 void init_game(void) {
 
@@ -62,31 +68,13 @@ void init_game(void) {
     ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
     if (!ren) exit(1);
     
-
-    SDL_Surface* surf = IMG_Load(PlayerIMG);
-    if (!surf) exit(1);
-    sprite = SDL_CreateTextureFromSurface(ren, surf);
-    SDL_FreeSurface(surf);
-
-    SDL_Surface* ensurf = IMG_Load(EnemyIMG);
-    if (!ensurf) exit(1);
-    ensprite = SDL_CreateTextureFromSurface(ren, ensurf);
-    SDL_FreeSurface(ensurf);
-
-    SDL_Surface* deadsurf = IMG_Load(DeathScreenIMG);
-    if (!deadsurf) exit(1);
-    deadsprite = SDL_CreateTextureFromSurface(ren, deadsurf);
-    SDL_FreeSurface(deadsurf);
-
-    SDL_Surface* restbutsurf = IMG_Load(RestButtonIMG);
-    if (!deadsurf) exit(1);
-    restsprite = SDL_CreateTextureFromSurface(ren,restbutsurf);
-    SDL_FreeSurface(restbutsurf);
-
-    SDL_Surface* menusurf = IMG_Load(MenuIMG);
-    if (!menusurf) exit(1);
-    menusprite = SDL_CreateTextureFromSurface(ren, menusurf);
-    SDL_FreeSurface(menusurf);
+    InitSprite(sprite, PlayerIMG);
+    InitSprite(ensprite, EnemyIMG);
+    InitSprite(deadsprite, DeathScreenIMG);
+    InitSprite(restsprite, RestButtonIMG);
+    InitSprite(menusprite, MenuIMG);
+    InitSprite(winsprite, WinIMG);
+    InitSprite(credsprite, CredsIMG);
 
     InitNumRend();
 
@@ -94,12 +82,15 @@ void init_game(void) {
 
     ScorePos1 = (SDL_Rect){WinWidth -50, WinHeight - 50, 25, 50}; // First digit
     ScorePos2 = (SDL_Rect){WinWidth - 25, WinHeight - 50, 25, 50};  // Second digit
+    credpos = (SDL_Rect){(WinWidth - 800) / 2, (WinHeight - 650) / 2, 800, 650};
 }
 
 void cleanup_game(void) {
-    if(sprite) SDL_DestroyTexture(sprite);
-    if(ensprite) SDL_DestroyTexture(ensprite);
-    if(deadsprite) SDL_DestroyTexture(deadsprite);
+    KillSprite(sprite); KillSprite(ensprite);
+    KillSprite(deadsprite); KillSprite(restsprite);
+    KillSprite(menusprite); KillSprite(winsprite);
+    KillSprite(credsprite);
+
     if(ren) SDL_DestroyRenderer(ren);
     if(win) SDL_DestroyWindow(win);
     Mix_FreeMusic(music);

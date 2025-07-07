@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "../game_setup.h"
 #include "MainHelpers/Helpers.h"
 
-void DeadView(SDL_Event *e, int* running, char **CurrView){
+void WinView(SDL_Event *e, int* running, char **CurrView){
     (void)CurrView;
     while (SDL_PollEvent(e)) {
         if (e->type == SDL_QUIT) *running = 0;
@@ -34,10 +34,10 @@ void DeadView(SDL_Event *e, int* running, char **CurrView){
                     
                 memset(enemies, 0, sizeof(enemies));
                 enemy_count = 0;
-                points = -10;
+                points = 0;
                 repos();
                 ResetTimers();
-                *CurrView = "Menu";  // or whatever view string you use
+                *CurrView = "Game";  // or whatever view string you use
                 return;
             }
         } 
@@ -45,7 +45,7 @@ void DeadView(SDL_Event *e, int* running, char **CurrView){
 
     SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
     SDL_RenderClear(ren);
-    SDL_RenderCopy(ren, deadsprite, NULL, &deadpos);
+    SDL_RenderCopy(ren, winsprite, NULL, &deadpos);
     SDL_RenderCopy(ren, restsprite, NULL, &restpos);
     SDL_RenderPresent(ren);
     SDL_Delay(16);
