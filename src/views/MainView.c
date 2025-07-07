@@ -18,9 +18,34 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "../views.h"
 #include "../game_setup.h"
+#include "../global.h"
 #include "MainHelpers/Helpers.h"
 
+Uint32 lastTime = 0;     // last recorded time in ms
+Uint32 lastSpawn = 0;
+
+void ResetTimers() {
+    Uint32 now = SDL_GetTicks();
+    lastTime = now;
+    lastSpawn = now - 10001; // forces immediate spawn next frame
+}
+
 void MainView(SDL_Event *e, int *running, char** CurrView){
+    Uint32 currentTime = SDL_GetTicks();
+    if (lastTime == 0) lastTime = currentTime;
+    lastTime = currentTime;
+
+    // Multiply enemies every 10 seconds
+    if (currentTime - lastSpawn > 10000 && enemy_count < MAX_ENEMIES) {
+        enemies[enemy_count++] = (SDL_Rect){
+            rand() % (WinWidth - 64),
+            rand() % (WinHeight - 64),
+            64, 64
+        };
+        lastSpawn = currentTime;
+        SDL_Log("Spawned enemy #%d\n", enemy_count);
+    }
+
     UpdatePos();
     while (SDL_PollEvent(e)) {
         if (e->type == SDL_QUIT) *running = 0;

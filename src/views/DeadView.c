@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "../views.h"
 #include "../game_setup.h"
+#include "MainHelpers/Helpers.h"
 
 void DeadView(SDL_Event *e, int* running, char **CurrView){
     (void)CurrView;
@@ -30,9 +31,11 @@ void DeadView(SDL_Event *e, int* running, char **CurrView){
             // Check if the click is inside restpos
             if (mx >= restpos.x && mx <= restpos.x + restpos.w &&
                 my >= restpos.y && my <= restpos.y + restpos.h) {
-                // Restart logic here
-                pos = origpos;
-                enemy_count = 1;
+                    
+                memset(enemies, 0, sizeof(enemies));
+                enemy_count = 0;
+                repos();
+                ResetTimers();
                 *CurrView = "Game";  // or whatever view string you use
                 return;
             }

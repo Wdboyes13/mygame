@@ -17,4 +17,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #pragma once
+#include <SDL2/SDL.h>
+
 void UpdatePos();
+void ResetTimers();
+
+extern Uint32 lastTime;     // last recorded time in ms
+extern Uint32 lastSpawn;

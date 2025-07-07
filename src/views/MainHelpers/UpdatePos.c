@@ -23,23 +23,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 void UpdatePos(){
     static float speed = 2.0f;
-    static Uint32 lastTime = 0;     // last recorded time in ms
-    static Uint32 lastSpawn = 0;
-
-    Uint32 currentTime = SDL_GetTicks();
-    if (lastTime == 0) lastTime = currentTime;
-    lastTime = currentTime;
-
-    // Multiply enemies every 10 seconds
-    if (currentTime - lastSpawn > 10000 && enemy_count < MAX_ENEMIES) {
-        enemies[enemy_count++] = (SDL_Rect){
-            rand() % (WinWidth - 64),
-            rand() % (WinHeight - 64),
-            64, 64
-        };
-        lastSpawn = currentTime;
-        SDL_Log("Spawned enemy #%d\n", enemy_count);
-    }
 
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
     if (keystate[SDL_SCANCODE_UP] || keystate[SDL_SCANCODE_W]) pos.y -= 5;

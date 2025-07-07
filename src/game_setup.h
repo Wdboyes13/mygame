@@ -33,7 +33,6 @@ extern SDL_Texture *restsprite;
 extern SDL_Rect restpos;
 extern SDL_Rect pos;
 extern SDL_Rect deadpos;
-extern SDL_Rect origpos;
 
 extern Mix_Music *music;
 
@@ -46,3 +45,4 @@ extern int enemy_count;
 void init_game(void);
 void cleanup_game(void);
 void initmusic();
+void repos();
