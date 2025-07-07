@@ -16,6 +16,7 @@ __[Full License](/LICENSE)__
 __[License Info](/Licenses/main.txt)__  
   
 __Background Music License__   
+__[Full License](/Licenses/bgmfull.txt)__  
 __[License Info](/Licenses/bgm.txt)__  
   
 __SDL2, SDL2_image, SDL2_mixer__    
