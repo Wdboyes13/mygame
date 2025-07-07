@@ -11,7 +11,7 @@ Linked are the releases I used
 [SDL2_image](https://github.com/libsdl-org/SDL_image/releases/tag/release-2.6.0)  
 
 ## Licensing  
-__(Main App License)[/LICENSE]__  
+__[Main App License](/LICENSE)__  
 A Little Game made with SDL2  
 Copyright (C) 2025  Wdboyes13  
   
