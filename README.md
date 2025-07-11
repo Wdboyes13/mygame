@@ -21,3 +21,13 @@ __[License Info](/Licenses/bgm.txt)__
   
 __SDL2, SDL2_image, SDL2_mixer__    
 __[License Info](/Licenses/sdl.txt)__  
+
+## To Build  
+Quick build: `make` - This is a wrapper around CMake  
+Normal Build:  
+- `cmake -G Ninja`  
+- `ninja`   
+Using [CarMake](https://github.com/Wdboyes13/CarMake)  
+- `cd cm`  
+- `CarMake`  
+- `make`  

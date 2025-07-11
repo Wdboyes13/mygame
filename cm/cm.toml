@@ -1,0 +1,15 @@
+[package]
+name = "game"
+type = "exec"
+
+[build]
+compiler = "clang"
+cflags = "-O2 -Wall -Wextra"
+
+includes = ["SDL2", "SDL2_image", "SDL2_mixer"]
+libdirs = ["SDL2", "SDL2_image", "SDL2_mixer"]
+libs = ["SDL2", "SDL2_image", "SDL2_mixer"]
+
+sources = ["../src/views/CredsView.c", "../src/views/DeadView.c", "../src/Game.c", "../src/ScoreRenderer/Init.c",
+            "../src/views/MainView.c", "../src/views/MenuView.c", "../src/ScoreRenderer/RenderNum.c", "../src/Setup.c",
+            "../src/StartMusic.c", "../src/views/MainHelpers/UpdatePos.c", "../src/views/WinView.c"]
