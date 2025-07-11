@@ -29,5 +29,4 @@ Normal Build:
 - `ninja`   
 Using [CarMake](https://github.com/Wdboyes13/CarMake)  
 - `cd cm`  
-- `CarMake`  
-- `make`  
+- `cm --run`  
