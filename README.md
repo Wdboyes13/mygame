@@ -28,5 +28,4 @@ Normal Build:
 - `cmake -G Ninja`  
 - `ninja`   
 Using [CarMake](https://github.com/Wdboyes13/CarMake)  
-- `cd cm`  
-- `cm --run`  
+- `cm -C cm --run`  
