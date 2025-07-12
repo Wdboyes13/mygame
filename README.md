@@ -14,13 +14,24 @@ Linked are the releases I used
 __Main App License__  
 __[Full License](/LICENSE)__  
 __[License Info](/Licenses/main.txt)__  
+- Copyright (c) 2025 Wdboyes13  
+- License: GPLv3
   
 __Background Music License__   
 __[Full License](/Licenses/bgmfull.txt)__  
 __[License Info](/Licenses/bgm.txt)__  
+- Airport Lounge Kevin MacLeod (incompetech.com)   
+- License:  Creative Commons: By Attribution 3.0 License   
   
 __SDL2, SDL2_image, SDL2_mixer__    
 __[License Info](/Licenses/sdl.txt)__  
+- Copyright (C) 1997-2025 Sam Lantinga <slouken@libsdl.org>  
+- License: ZLib  
+
+__LLVM Libunwind__  
+__[Full License](/Licenses/ApacheLLVM.txt)__  
+- Copyright (c) LLVM Project  
+- License: Apache 2.0 with LLVM Exception  
 
 ## To Build  
 Quick build: `make` - This is a wrapper around CMake  

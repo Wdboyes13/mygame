@@ -32,6 +32,17 @@ static const char* IMG6 = "res\\nums\\6.png";
 static const char* IMG7 = "res\\nums\\7.png";
 static const char* IMG8 = "res\\nums\\8.png";
 static const char* IMG9 = "res\\nums\\9.png";
+#elif defined(__APPLE__RELEASE__)
+static const char* IMG0 = "../Resources/nums/0.png";
+static const char* IMG1 = "../Resources/nums/1.png";
+static const char* IMG2 = "../Resources/nums/2.png";
+static const char* IMG3 = "../Resources/nums/3.png";
+static const char* IMG4 = "../Resources/nums/4.png";
+static const char* IMG5 = "../Resources/nums/5.png";
+static const char* IMG6 = "../Resources/nums/6.png";
+static const char* IMG7 = "../Resources/nums/7.png";
+static const char* IMG8 = "../Resources/nums/8.png";
+static const char* IMG9 = "../Resources/nums/9.png";
 #else
 static const char* IMG0 = "res/nums/0.png";
 static const char* IMG1 = "res/nums/1.png";

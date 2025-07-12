@@ -29,6 +29,15 @@ static const char* RestButtonIMG = "res\\restart-button.png";
 static const char* MenuIMG = "res\\menutxt.png";
 static const char* WinIMG = "res\\Win.png";
 static const char* CredsIMG = "res\\credits.png";
+#elif defined(__APPLE__RELEASE__)
+static const char* PlayerIMG = "../Resources/player.png";
+static const char* EnemyIMG = "../Resources/enemy.png";
+static const char* DeathScreenIMG = "../Resources/dead.png";
+static const char* BGMusic = "../Resources/bgm.wav";
+static const char* RestButtonIMG = "../Resources/restart-button.png";
+static const char* MenuIMG = "../Resources/menutxt.png";
+static const char* WinIMG = "../Resources/Win.png";
+static const char* CredsIMG = "../Resources/credits.png";
 #else
 static const char* PlayerIMG = "res/player.png";
 static const char* EnemyIMG = "res/enemy.png";
