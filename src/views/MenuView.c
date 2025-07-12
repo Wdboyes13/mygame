@@ -19,6 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "../views.h"
 #include "../game_setup.h"
 #include "MainHelpers/Helpers.h"
+#include "SDL2/SDL_mixer.h"
 
 
 void MenuView(SDL_Event *e, int *running, char** CurrView) {
@@ -32,6 +33,20 @@ void MenuView(SDL_Event *e, int *running, char** CurrView) {
         *CurrView = "Game"; 
     }
     if (keystate[SDL_SCANCODE_C]) *CurrView = "Creds";
+    if (keystate[SDL_SCANCODE_M]) {
+    if (Mix_PlayingMusic()) {
+        if (Mix_PausedMusic()) {
+                Mix_ResumeMusic();  // ← unpause
+            } else {
+                Mix_PauseMusic();   // ← pause
+            }
+        } else {
+            if (Mix_PlayMusic(music, -1) == -1) {
+                printf("Mix_PlayMusic error: %s\n", Mix_GetError());
+            }
+        }
+        SDL_Delay(200);
+    }
     
     while (SDL_PollEvent(e)) {
         if (e->type == SDL_QUIT) *running = 0;

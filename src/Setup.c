@@ -43,7 +43,7 @@ void repos(){
     enemies[0] = (SDL_Rect){(WinWidth - 64) / 2, (WinHeight - 64) / 2, 64, 64};
     deadpos = (SDL_Rect){(WinWidth - 400) / 2, (WinHeight - 200) / 2, 400, 200};
     restpos = (SDL_Rect){(WinWidth - 200) / 2, ((WinHeight - 100) / 2) + 125, 200, 100};
-    menupos = (SDL_Rect){(WinWidth - 300) / 2, (WinHeight - 100) / 2, 300, 100};
+    menupos = (SDL_Rect){(WinWidth - 340) / 2, (WinHeight - 150) / 2, 340, 150};
 }
 
 #define InitSprite(SpriteName, SpriteIMG) \
