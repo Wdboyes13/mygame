@@ -1,6 +1,7 @@
 # A little game
 __This is a little game made with SDL2__  
-
+__Theres also a JavaScript port in [/jsport](/jsport/a-lil-game/)__  
+__You can play it right now! - [Click Here](https://weelam.ca/game/index.html)__  
 
 ## Required  
 You'll need 3 SDL Libraries  
